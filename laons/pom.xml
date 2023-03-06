@@ -109,6 +109,8 @@
 					<image>
 						<name>eazybytes/${project.artifactId}</name>
 					</image>
+					<skipPush>true</skipPush>
+					<skipCheck>true</skipCheck>
 				</configuration>
 			</plugin>
 			<plugin>

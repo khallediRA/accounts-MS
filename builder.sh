@@ -1,12 +1,17 @@
-mvn -f "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/configserver/pom.xml" clean package -DskipTests  & sleep 3 &
-mvn -f "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/eurakaserver/pom.xml" clean package -DskipTests  & sleep 3 &
-mvn -f "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/accounts/accounts/pom.xml" clean package -DskipTests  & sleep 3 &
-mvn -f "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/laons/loans/pom.xml" clean package -DskipTests  & sleep 3 &
-mvn -f  "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/cards/cards/pom.xml" clean package -DskipTests & sleep 3 &
+declare
+-a
+modules=(
+    "configserver/pom.xml"
+    "eurakaserver/pom.xml"
+    "accounts/pom.xml"
+    "laons/pom.xml"
+    "cards/pom.xml"
+    "gatewayserver/pom.xml"
+)
+for module in "${modules[@]}"; do
 
-mvn -f  "/c/Users/HP/Desktop/SpringBootProjects/udemy cours reworked/gatewayserver/pom.xml" clean package -DskipTests &
+    mvn -f $module clean package -DskipTests &
+    echo "done for $module"
+done
 
-
-
-
-
+echo "all done"
